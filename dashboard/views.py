@@ -1,11 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from.models import Task
+from.forms import TaskForm
 
 
 def home_view(request):
-    context = {
-        'title': 'Home'
-    }
-    return render(request, 'dashboard/home.html', context)
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+    tasks = Task.objects.all()
+    form = TaskForm()
+    print(form)
+
+    return render(request, 'dashboard/home.html', {'tasks': tasks, 'form': form})
 
 
 def task_view(request):
