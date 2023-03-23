@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
 
-import user, dashboard
+import user
+import dashboard
 
 urlpatterns = [
     path('', include('dashboard.urls'), name='dashboard'),
