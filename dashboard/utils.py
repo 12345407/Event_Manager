@@ -17,11 +17,11 @@ class Calendar(HTMLCalendar):
         delete = ''
         for event in events_per_day:
 
-            title += f'<li> {event.get_html_url} </li>'
-            delete += f'<li> {event.get_url} </li>'
+            title += f'<li class="date"> {event.get_html_url} </li>'
+            delete += f'<li class="date"> {event.get_url} </li>'
 
         if day != 0:
-            return f"<td><span class='date'>{day}</span><ul> {title} {delete} </ul></td>\n"
+            return f"<td><span class='date '>{day}</span><ul> {title} {delete} </ul></td>\n"
         return '<td></td>'
 
     # formats a week as a tr

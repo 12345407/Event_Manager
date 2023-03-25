@@ -5,11 +5,19 @@ Calendar
 {% endblock %}
 
 {% block content %}
-<div class="clearfix">
-    <a class="btn btn-info left" href="{% url 'dashboard:calendar' %}?{{ prev_month }}"> Previous Month </a>
-    <a class="btn btn-info right" href="{% url 'dashboard:calendar' %}?{{ next_month }}"> Next Month </a>
-    <a class="btn btn-info right" href="{% url 'dashboard:home' %}"> New Event </a>
+{% if request.user.is_authenticated %}
+<div class="clearfix" style="display: flex;
+justify-content: space-around;">
+    <a class="btn btn-info left" style="background: green;padding: 21px;border-radius: 8px;
+    font-weight: bold;" href="{% url 'dashboard:calendar' %}?{{ prev_month }}"> Previous Month </a>
+    <a class="btn btn-info right" style="background: green;padding: 21px;border-radius: 8px;
+    font-weight: bold;" href="{% url 'dashboard:calendar' %}?{{ next_month }}"> Next Month </a>
+    <a class="btn btn-info right" style="background: green; padding: 21px; border-radius: 8px;
+    font-weight: bold;" href="{% url 'dashboard:home' %}"> New Event </a>
 </div>
 
 {{ calendar }}
+{% else %}
+
+{% endif%}
 {% endblock %}

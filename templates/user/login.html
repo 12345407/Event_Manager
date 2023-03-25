@@ -1,14 +1,23 @@
 {% extends "base/base.html" %}
 {% block content %}
 <section class="text-gray-500 body-font">
-    <div class="container px-10 py-24 mx-auto flex flex-wrap items-center">
+    <div class="container px-10 py-24 mx-auto flex flex-wrap items-center" style="display: flex;
+    justify-content: space-around;
+    padding: 29px;
+    font-weight: bold;
+    font-size: 26px;">
         <!-- <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
                 <iframe width="100%" height="600px" frameborder="0" marginheight="0" marginwidth="0" title="map"
                         scrolling="no"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202407.60027351027!2d126.83365998928471!3d37.56404509623918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2012d5c39cf%3A0x7e11eca1405bf29b!2sSeoul%2C%20South%20Korea!5e0!3m2!1sen!2sin!4v1595658456878!5m2!1sen!2sin&"
                         style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
             </div> -->
-        <div class="lg:w-2/6 md:w-1/2  flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <div class="lg:w-2/6 md:w-1/2  flex flex-col md:ml-auto w-full mt-10 md:mt-0" style="    display: flex;
+        justify-content: center;
+        border: 1px solid gray;
+        width: 44%;
+        align-items: center;
+        background: white;">
             {% if login_error %}
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"
                 id="login_error">
@@ -21,34 +30,38 @@
             <br>
             {% endif %}
 
-            <div class="bg-gray-200 p-8 rounded-lg">
+            <div class="bg-gray-200 p-8 rounded-lg" style="padding: 44px;">
                 <h2 class="text-gray-900 text-lg title-font mb-5">Sign In</h2>
                 <hr>
                 <br>
-                <form class="w-full max-w-sm" method="post">{% csrf_token %}
+                <form class="w-full max-w-sm" method="post" style="padding: 22px;">{% csrf_token %}
                     <div class="md:flex md:items-center mb-6">
                         <div class="md:w-1/4">
                             <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-email">
                                 Email
                             </label>
                         </div>
-                        <div class="md:w-3/4">
+                        <div class="md:w-3/4" style="margin-top: 12px;">
                             <input
                                 class="bg-gray-200 appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                id="inline-email" type="email" placeholder="Email" name="email" required />
+                                style="padding: 9px;
+                                width: 284px;" id="inline-email" type="email" placeholder="Email" name="email"
+                                required />
                         </div>
                     </div>
-                    <div class="md:flex md:items-center mb-6">
+                    <div class="md:flex md:items-center mb-6" style="    margin: 22px;">
                         <div class="md:w-1/4">
-                            <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-username">
+                            <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" style=" 
+                            margin-bottom: 40px;">
                                 Password
                             </label>
                         </div>
-                        <div class="md:w-3/4">
+                        <div class="md:w-3/4" style="padding: 9px; width: 284px;">
                             <input
                                 class="bg-gray-200 appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                id="inline-username" type="password" placeholder="******************" name="password"
-                                required />
+                                style="    padding: 14px;
+                                width: 84%;" id="inline-username" type="password" placeholder="******************"
+                                name="password" required />
                         </div>
                     </div>
 
@@ -56,7 +69,8 @@
                     <div align="center">
                         <button
                             class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none focus:border-purple-800 text-white font-bold py-3 px-10 rounded"
-                            type="submit">
+                            style="    padding: 9px;
+                            width: 284px;" type="submit">
                             Sign In
                         </button>
                     </div>

@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+<div style="color:green;">
+    <h1> Event </h1>
+</div>
+
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="clearfix">
+    <a class="btn btn-info left" style="background: green;padding: 21px;border-radius: 8px"
+        href="{% url 'dashboard:calendar' %}"> Calendar </a>
+</div>
+
+{% if form.errors %}
+{% for field in form %}
+{% for error in field.errors %}
+<div class="alert alert-danger">
+    {{ field.label }} <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %}
+{% endfor %}
+{% for error in form.non_field_errors %}
+<div class="alert alert-danger">
+    {{ field.label }} <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %}
+{% endif %}
+
+<form method="post" style="padding: 62px;">
+    {% csrf_token %}
+    <table class="form form-table">
+        {{ form }}
+        <tr>
+            <td colspan="2"><button type="submit" class="btn btn-info right" style="padding: 13px;
+                width: 112px;
+                background: green;
+                border-radius: 8px;
+                font-size: 19px;
+                font-weight: bold;"> Submit </button></td>
+        </tr>
+        <div>
+        </div>
+    </table>
+</form>
+{%else%}
+
+{% endif %}
+{% if request.user.is_authenticated %}
+
+{% else %}
+<div style="text-align: center;
+padding: 44px;
+font-size: xxx-large;">
+    <h1> welcom </h1>
+    <p> Mamnage Your Task </p>
+</div>
+{% endif %}
+
+<tr>
+</tr>
+{% endblock %}

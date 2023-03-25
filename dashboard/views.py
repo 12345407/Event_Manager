@@ -59,7 +59,7 @@ def home_view(request, event_id=None):
     if request.POST and form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('dashboard:calendar'))
-    return render(request, 'dashboard/home.html', {'form': form})
+    return render(request, 'dashboard/event.html', {'form': form})
 
 
 def delete(request, pk):
@@ -68,3 +68,8 @@ def delete(request, pk):
         task.delete()
         return redirect('/')
     return render(request, 'dashboard/delete_task.html')
+
+
+def home(request):
+
+    return render(request, 'dashboard/home.html')
