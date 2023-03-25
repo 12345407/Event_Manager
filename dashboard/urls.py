@@ -1,10 +1,12 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
-from .views import home_view, task_view
-
+app_name = 'cal'
 urlpatterns = [
-    path('', home_view, name="home"),
-    path('task/', task_view, name='task'),
+    path('', views.home_view, name="home"),
+    path('calendar/', views.CalendarView.as_view(), name='calendar'),
+    # path('event/new/', views.event, name='event_new'),
+    path('event/edit/(?P<event_id>\d+)/', views.home_view, name='event_edit'),
+    path('delete/<int:pk>/', views.delete, name='todos-delete'),
 
 ]

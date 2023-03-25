@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import Task
+from dashboard.models import Event
 
-admin.site.register(Task)
+# Register your models here.
+admin.site.register(Event)

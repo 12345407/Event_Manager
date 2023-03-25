@@ -1,17 +1,19 @@
 from django.db import models
-
-# Create your models here.
-
-
-class Task(models.Model):
-    priority = (('L', 'Low'),
-                ('H', 'High'),
-                ('M', 'Medium'))
-    task_name = models.CharField(max_length=200)
-    due_date = models.DateTimeField(default=None, null=True, blank=True)
-    completed = models.BooleanField(default=False)
-    priority = models.CharField(max_length=1, choices=priority, default='L')
+from django.urls import reverse
 
 
-def __str__(self):
-    return self.task_name
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+
+    @property
+    def get_html_url(self):
+        url = reverse('cal:event_edit', args=(self.id,))
+        return f'<a href="{url}"> {self.title} </a>'
+
+    @property
+    def get_url(self):
+        url = reverse('cal:todos-delete', args=(self.id,))
+        return f'<a href="{url}"> delete </a>'
