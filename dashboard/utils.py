@@ -3,11 +3,11 @@ from calendar import HTMLCalendar
 from .models import Event
 
 
-class Calendarrr(HTMLCalendar):
+class Calendar(HTMLCalendar):
     def __init__(self, year=None, month=None):
         self.year = year
         self.month = month
-        super(Calendarrr, self).__init__()
+        super(Calendar, self).__init__()
 
     # formats a day as a td
     # filter events by day
@@ -37,9 +37,9 @@ class Calendarrr(HTMLCalendar):
         events = Event.objects.filter(
             start_time__year=self.year, start_time__month=self.month)
 
-        call = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n'
-        call += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n'
-        call += f'{self.formatweekheader()}\n'
+        dashboard = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n'
+        dashboard += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n'
+        dashboard += f'{self.formatweekheader()}\n'
         for week in self.monthdays2calendar(self.year, self.month):
-            call += f'{self.formatweek(week, events)}\n'
-        return call
+            dashboard += f'{self.formatweek(week, events)}\n'
+        return dashboard

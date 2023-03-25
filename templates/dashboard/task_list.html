@@ -1,4 +1,4 @@
-{% extends 'dashboard/base.html' %}
+{% extends 'base/base.html' %}
 
 {% block title %}
 Calendar
@@ -8,7 +8,7 @@ Calendar
 <div class="clearfix">
     <a class="btn btn-info left" href="{% url 'dashboard:calendar' %}?{{ prev_month }}"> Previous Month </a>
     <a class="btn btn-info right" href="{% url 'dashboard:calendar' %}?{{ next_month }}"> Next Month </a>
-    <a class="btn btn-info right" href="{% url 'dashboard:event_new' %}"> New Event </a>
+    <a class="btn btn-info right" href="{% url 'dashboard:home' %}"> New Event </a>
 </div>
 
 {{ calendar }}

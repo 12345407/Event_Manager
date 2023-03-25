@@ -13,14 +13,14 @@ from .forms import EventForm
 
 class CalendarView(generic.ListView):
     model = Event
-    template_name = 'cal/task_list.html'
+    template_name = 'dashboard/task_list.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         d = get_date(self.request.GET.get('month', None))
-        cal = Calendar(d.year, d.month)
-        html_cal = cal.formatmonth(withyear=True)
-        context['calendar'] = mark_safe(html_cal)
+        dashboard = Calendar(d.year, d.month)
+        html_dashboard = dashboard.formatmonth(withyear=True)
+        context['calendar'] = mark_safe(html_dashboard)
         context['prev_month'] = prev_month(d)
         context['next_month'] = next_month(d)
         return context
@@ -58,7 +58,7 @@ def home_view(request, event_id=None):
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('cal:calendar'))
+        return HttpResponseRedirect(reverse('dashboard:calendar'))
     return render(request, 'dashboard/home.html', {'form': form})
 
 
@@ -67,4 +67,4 @@ def delete(request, pk):
     if request.method == 'POST':
         task.delete()
         return redirect('/')
-    return render(request, 'cal/delete_task.html')
+    return render(request, 'dashboard/delete_task.html')
