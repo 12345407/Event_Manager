@@ -6,7 +6,7 @@ Calendar
 
 {% block content %}
 {% if request.user.is_authenticated %}
-<div class="clearfix" style="display: flex;
+<div class="clearfix" style="
 justify-content: space-around;">
     <a class="btn btn-info left" style="background: green;padding: 21px;border-radius: 8px;
     font-weight: bold;" href="{% url 'dashboard:calendar' %}?{{ prev_month }}"> Previous Month </a>
