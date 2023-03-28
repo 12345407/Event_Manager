@@ -25,7 +25,7 @@ SECRET_KEY = '!@*2nva@$tsw)2eso!j(596r!w)!5f_#lf7dj!m-r9ikn169@4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['otpauth.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
